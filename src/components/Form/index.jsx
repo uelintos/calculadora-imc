@@ -80,7 +80,15 @@ function Form() {
                 />
 
                 <button className='form-btn' type='submit'>Calcular IMC</button>
-                {imc && <p className='form-result'>Olá { name } Seu IMC é: {imc}</p>}
+                {imc && (
+                    <p className='form-result'>
+                        Olá {name}, Seu IMC é: {imc}.{" "}
+                        {imc < 22 && "Você está abaixo do peso."}
+                        {imc >= 22 && imc < 27 && "Seu peso está normal."}
+                        {imc >= 27 && imc < 30 && "Você está com sobrepeso."}
+                        {imc >= 30 && "Você está com obesidade."}
+                    </p>
+                )}
             </div>
         </form>
     )
